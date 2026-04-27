@@ -4,7 +4,7 @@
     height: toRem(632);
     background: #211c24;
     overflow: hidden;
-    margin-top: 0px;
+    padding-top: 0px;
   }
   
   .hero .container {
@@ -111,6 +111,10 @@
     .hero__description{
       margin-top: toRem(16);
       margin-bottom: toRem(32);
+    }
+
+    .hero{
+      padding-bottom:0px
     }
    
   } 
