@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "font-icons";
+    src: url("../fonts/font-icons.woff2") format("woff2"),
+        url("../fonts/font-icons.ttf") format("truetype"),
+        url("../fonts/font-icons.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+.icon, [class^="icon-"], [class*=" icon-"] {
+    /* Use !important to prevent extensions from overriding this font. */
+    font-family: "font-icons" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-Vector15:before {
+    content: "\f000";
+    content: "\f000" / "";
+}
+.icon-Vector11:before {
+    content: "\f001";
+    content: "\f001" / "";
+}
+.icon-Vector10:before {
+    content: "\f002";
+    content: "\f002" / "";
+}
+.icon-Vector9:before {
+    content: "\f003";
+    content: "\f003" / "";
+}
+.icon-Vector8:before {
+    content: "\f004";
+    content: "\f004" / "";
+}
+.icon-Twitter2:before {
+    content: "\f005";
+    content: "\f005" / "";
+}
+.icon-Tiktok:before {
+    content: "\f006";
+    content: "\f006" / "";
+}
+.icon-SmartWatches2:before {
+    content: "\f007";
+    content: "\f007" / "";
+}
+.icon-Phones2:before {
+    content: "\f008";
+    content: "\f008" / "";
+}
+.icon-Like3:before {
+    content: "\f009";
+    content: "\f009" / "";
+}
+.icon-Instagram2:before {
+    content: "\f00a";
+    content: "\f00a" / "";
+}
+.icon-Icon5:before {
+    content: "\f00b";
+    content: "\f00b" / "";
+}
+.icon-Icon4:before {
+    content: "\f00c";
+    content: "\f00c" / "";
+}
+.icon-Headphones2:before {
+    content: "\f00d";
+    content: "\f00d" / "";
+}
+.icon-Gaming:before {
+    content: "\f00e";
+    content: "\f00e" / "";
+}
+.icon-Facebook:before {
+    content: "\f00f";
+    content: "\f00f" / "";
+}
+.icon-Ellipse731:before {
+    content: "\f010";
+    content: "\f010" / "";
+}
+.icon-Ellipse721:before {
+    content: "\f011";
+    content: "\f011" / "";
+}
+.icon-Computers2:before {
+    content: "\f012";
+    content: "\f012" / "";
+}
+.icon-Close:before {
+    content: "\f013";
+    content: "\f013" / "";
+}
+.icon-Cameras2:before {
+    content: "\f014";
+    content: "\f014" / "";
+}
+.icon-Burger:before {
+    content: "\f015";
+    content: "\f015" / "";
+}

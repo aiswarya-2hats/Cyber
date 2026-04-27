@@ -1,0 +1,58 @@
+
+
+
+<form class="search" role="search">
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+  </form>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#" aria-current="page">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- Actions -->
+  <div class="actions" aria-label="User actions">
+    <button aria-label="Wishlist">❤</button>
+    <button aria-label="Cart">🛒</button>
+    <button aria-label="Profile"><span class="icon icon-SmartWatches2"></span></button>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button
+    class="menu-toggle"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-sidebar"
+  >
+    ☰
+  </button>
+
+<div class="sidebar-overlay" hidden></div>
+
+<aside
+id="mobile-sidebar"
+class="mobile-sidebar"
+aria-label="Mobile navigation"
+aria-hidden="true"
+>
+<button class="sidebar-close" aria-label="Close menu">✕</button>
+
+<nav class="mobile-nav" aria-label="Mobile main navigation">
+  <ul>
+    <li><a href="#" aria-current="page">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+</nav>
+</aside>

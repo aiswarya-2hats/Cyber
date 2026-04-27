@@ -1,0 +1,83 @@
+// Typography
+// @include font-face("Roboto", "Bold", 700, "normal");
+// @include font-face("Roboto", "Regular", 400, "normal");
+ 
+// @include font-face("SFProDisplay", "Heavy", 300, normal);
+// @include font-face("SFProText", "Regular", 500, normal); 
+// @include font-face("SFProText", "Semibold", 500, normal); 
+// @include font-face("SFProText", "Medium", 500, normal);  
+// @include font-face("SFProText", "BoldItalic", 600, normal);  
+// @include font-face('Kameron', 'Light', normal, normal); 
+// @include font-face('MinionPro', 'Light', normal, normal);
+// @include font-face('OpenSans', 'Light', normal, normal);
+
+h2,
+h3,
+h4,
+h5{
+  color: var(--primary-color);
+}
+
+h1{
+  color: var(--white);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-thin);
+  line-height: var(--lh-h1);
+}
+h2{
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-h2);
+}
+h3{
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-h3);
+}
+h4{
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-h4);
+}
+h5{
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-h5);
+}
+
+p{
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-body);
+}
+
+a{
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  text-decoration: none;
+}
+
+
+
+@media(max-width: 768px){
+  h1{
+    font-size: toRem(72);
+  }
+  h2{
+    font-size: toRem(49);
+  }
+  h3{
+    font-size: toRem(24);
+  }
+  h4{
+    font-size: toRem(18);
+  }
+p{
+  font-size: toRem(16);
+}
+a{
+  font-size: toRem(16);
+}
+}
+
+
