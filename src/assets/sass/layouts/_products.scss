@@ -150,8 +150,22 @@
   
   @media (max-width: 480px) {
     .product-category-tabs {
-      gap: 16px;
+      gap: 32px;
       font-size: 13px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .product-category-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-category-tab {
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .product-category-grid {
