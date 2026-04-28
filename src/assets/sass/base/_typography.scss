@@ -47,8 +47,11 @@ h5{
 
 p{
   font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-light);
   line-height: var(--lh-body);
+  color: var(--para-color);
+  margin-top: toRem(16);
+  margin-bottom: 0px;
 }
 
 a{

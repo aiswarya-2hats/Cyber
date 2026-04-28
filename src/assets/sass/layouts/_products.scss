@@ -1,0 +1,123 @@
+
+   /* Tabs */
+  .product-category-tabs {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .product-category-tab {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #777;
+    cursor: pointer;
+    padding-bottom: 6px;
+  }
+  
+  .product-category-tab.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+  
+  /* Grid */
+  .product-category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  /* Card */
+  .product-category-card {
+    background: #eee;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  
+  .product-category-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Image */
+  .product-category-image {
+    width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+  
+  /* Title */
+  .product-category-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Price */
+  .product-category-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  /* Button */
+  .product-category-buy-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .product-category-buy-btn:focus {
+    outline: 2px solid #000;
+  }
+  
+  /* Wishlist */
+  .product-category-fav-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+  
+  .product-category-fav-btn.active {
+    color: red;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .product-category-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product-category-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  
+    .product-category-title {
+      font-size: 13px;
+    }
+  
+    .product-category-price {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-category-tabs {
+      gap: 16px;
+      font-size: 13px;
+    }
+  }

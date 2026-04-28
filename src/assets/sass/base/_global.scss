@@ -16,6 +16,7 @@ html,
 body {
   font-family: var(--primary-font);
   margin: 0;
+  overflow-y: auto;
 }
 
 // .container {
