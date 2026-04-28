@@ -21,91 +21,354 @@
         <!-- Product Card -->
         <article class="product-category-card" data-category="new-arrival">
           <button class="product-category-fav-btn" aria-label="Add to wishlist">
-            ♡
+            <span class="icon icon-Vector15"></span>
           </button>
   
-          <img src="images/iphone.png" alt="Apple iPhone 14 Pro Max Deep Purple"
-            class="product-category-image" loading="lazy">
-  
-          <h3 class="product-category-title">
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-iphone1x-mob.png 1x,
+                uploads/prod-iphone2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-iphone1x-web.png 1x,
+                uploads/prod-iphone2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-iphone1x-web.png"
+              srcset="
+                uploads/prod-iphone1x-web.png 1x,
+                uploads/prod-iphone2x-web.png 2x
+              "
+              alt="Apple iPhone 14 Pro Max Deep Purple"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>  
+          <p class="product-category-title">
             Apple iPhone 14 Pro Max 128GB Deep Purple
-          </h3>
+          </p>
   
           <p class="product-category-price">$900</p>
   
-          <button class="product-category-buy-btn">
+          <button class="secondary-btn ">
             Buy Now
           </button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="featured-products">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/camera.png" alt="Blackmagic Pocket Cinema Camera 6K"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Blackmagic Pocket Cinema Camera 6K</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-cam1x-mob.png 1x,
+                uploads/prod-cam2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-cam1x-web.png 1x,
+                uploads/prod-cam2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-cam1x-web.png"
+              srcset="
+                uploads/prod-cam1x-web.png 1x,
+                uploads/prod-cam2x-web.png 2x
+              "
+              alt="Blackmagic Pocket Cinema Camera 6K"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>
+          <p class="product-category-title">Blackmagic Pocket Cinema Camera 6K</p>
           <p class="product-category-price">$2535</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="new-arrival">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/watch.png" alt="Apple Watch Series 9 GPS 41mm"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Apple Watch Series 9 GPS 41mm</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-watch1x-mob.png 1x,
+                uploads/prod-watch2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-watch1x-web.png 1x,
+                uploads/prod-watch2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-watch1x-web.png"
+              srcset="
+                uploads/prod-watch1x-web.png 1x,
+                uploads/prod-watch2x-web.png 2x
+              "
+              alt="Apple Watch Series 9 GPS 41mm"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>          
+          <p class="product-category-title">Apple Watch Series 9 GPS 41mm Starlight Aluminium </p>
           <p class="product-category-price">$399</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="bestseller">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/airpods.png" alt="AirPods Max Silver"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">AirPods Max Silver</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-headset1x-mob.png 1x,
+                uploads/prod-headset2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-headset1x-web.png 1x,
+                uploads/prod-headset2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-headset1x-web.png"
+              srcset="
+                uploads/prod-headset1x-web.png 1x,
+                uploads/prod-headset2x-web.png 2x
+              "
+              alt="AirPods Max Silver"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>         
+          <p class="product-category-title">AirPods Max Silver <br>
+            Starlight Aluminium </p>
           <p class="product-category-price">$549</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="featured-products">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/samsung-watch.png" alt="Samsung Galaxy Watch6 Classic"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Samsung Galaxy Watch6 Classic</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-samsung-watch1x-mob.png 1x,
+                uploads/prod-samsung-watch2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-samsung-watch1x-web.png 1x,
+                uploads/prod-samsung-watch2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-samsung-watch1x-web.png"
+              srcset="
+                uploads/prod-samsung-watch1x-web.png 1x,
+                uploads/prod-samsung-watch2x-web.png 2x
+              "
+              alt="Samsung Galaxy Watch6 Classic"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>          
+          <p class="product-category-title">Samsung Galaxy Watch6 Classic 47mm Black</p>
           <p class="product-category-price">$369</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="new-arrival">
-          <button class="product-category-fav-btn active" aria-label="Remove from wishlist">❤</button>
-          <img src="images/zfold.png" alt="Galaxy Z Fold5 Phantom Black"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Galaxy Z Fold5 Unlocked</h3>
+          <button class="product-category-fav-btn active" aria-label="Remove from wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-samsung-phone1x-mob.png 1x,
+                uploads/prod-samsung-phone2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-samsung-phone1x-web.png 1x,
+                uploads/prod-samsung-phone2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-samsung-phone1x-web.png"
+              srcset="
+                uploads/prod-samsung-phone1x-web.png 1x,
+                uploads/prod-samsung-phone2x-web.png 2x
+              "
+              alt="Galaxy Z Fold5 Phantom Black"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>          
+          <p class="product-category-title">Galaxy Z Fold5 Unlocked | 256GB | Phantom Black</p>
           <p class="product-category-price">$1799</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="bestseller">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/buds.png" alt="Galaxy Buds FE Graphite"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Galaxy Buds FE</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-bud1x-mob.png 1x,
+                uploads/prod-bud2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-bud1x-web.png 1x,
+                uploads/prod-bud2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-bud1x-web.png"
+              srcset="
+                uploads/prod-bud1x-web.png 1x,
+                uploads/prod-bud2x-web.png 2x
+              "
+              alt="Galaxy Buds FE Graphite"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+
+            />
+          </picture>          
+          <p class="product-category-title">Galaxy Buds FE <br> Graphite</p>
           <p class="product-category-price">$99.99</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
         <!-- Product -->
         <article class="product-category-card" data-category="new-arrival">
-          <button class="product-category-fav-btn" aria-label="Add to wishlist">♡</button>
-          <img src="images/ipad.png" alt="Apple iPad 10.2 2021"
-            class="product-category-image" loading="lazy">
-          <h3 class="product-category-title">Apple iPad 10.2” 64GB</h3>
+          <button class="product-category-fav-btn" aria-label="Add to wishlist"><span class="icon icon-Vector15"></span></button>
+          <picture>
+            <!-- Mobile (up to 767px) -->
+            <source
+              media="(max-width: 767px)"
+              srcset="
+                uploads/prod-tab1x-mob.png 1x,
+                uploads/prod-tab2x-mob.png 2x
+              "
+            />
+          
+            <!-- Desktop (768px and above) -->
+            <source
+              media="(min-width: 768px)"
+              srcset="
+                uploads/prod-tab1x-web.png 1x,
+                uploads/prod-tab2x-web.png 2x
+              "
+            />
+          
+            <!-- Fallback -->
+            <img
+              src="uploads/prod-tab1x-web.png"
+              srcset="
+                uploads/prod-tab1x-web.png 1x,
+                uploads/prod-tab2x-web.png 2x
+              "
+              alt="Apple iPad 10.2 2021"
+              class="product-category-image"
+              loading="lazy"
+              decoding="async"
+              width="160px"
+              height="160px"
+            />
+          </picture>          
+          <p class="product-category-title">Apple iPad 9 10.2" 64GB <br> Wi-Fi Silver (MK2L3) 2021</p>
           <p class="product-category-price">$398</p>
-          <button class="product-category-buy-btn">Buy Now</button>
+          <button class="secondary-btn ">Buy Now</button>
         </article>
   
       </div>

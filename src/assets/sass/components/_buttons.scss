@@ -33,6 +33,28 @@
     margin-top: 16px;
 }
 
+.secondary-btn{
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--primary-color);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-medium);
+    transition: all 0.3s ease;
+    width: 183px;
+    height: 48px;
+    padding: 12px 25px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+}
+
+
 
 
 @media(max-width: 768px){

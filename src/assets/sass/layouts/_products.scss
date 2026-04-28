@@ -2,18 +2,19 @@
    /* Tabs */
   .product-category-tabs {
     display: flex;
-    gap: 24px;
-    margin-bottom: 24px;
+    gap: 32px;
+    margin-bottom: 32px;
   }
   
   .product-category-tab {
     background: none;
     border: none;
-    font-size: 14px;
-    color: #777;
+    font-size: 18px;
+    color: var(--para-color);
     cursor: pointer;
-    padding-bottom: 6px;
-  }
+    padding: 0 0 6px 0;
+    font-weight: var(--fw-medium);
+    }
   
   .product-category-tab.active {
     color: #000;
@@ -24,44 +25,48 @@
   .product-category-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
   
   /* Card */
   .product-category-card {
-    background: #eee;
-    padding: 16px;
+    // width: 268px;
+    // height: 432px;
+    background: #F6F6F6;
+    padding: 0px 16px;
     border-radius: 12px;
     text-align: center;
     position: relative;
-    transition: transform 0.2s ease;
+    min-width: 0;
   }
   
-  .product-category-card:hover {
-    transform: translateY(-4px);
-  }
+ 
   
   /* Image */
   .product-category-image {
     width: 100%;
-    max-height: 140px;
+    // max-height: 140px;
     object-fit: contain;
-    margin-bottom: 12px;
-  }
+    margin-bottom: 16px;
+    margin-top: 16px; 
+   }
   
   /* Title */
   .product-category-title {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #333;
+    margin-bottom: 16px;
+    font-weight: var(--fw-regular);
+    color: var(--primary-color);
+    margin-top: 0px;
   }
   
   /* Price */
   .product-category-price {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: var(--fw-semibold);
     margin-bottom: 12px;
-  }
+    color: var(--primary-color);
+    margin-bottom: 24px;
+}
   
   /* Button */
   .product-category-buy-btn {
@@ -72,7 +77,9 @@
     width: 100%;
     border-radius: 8px;
     cursor: pointer;
+    margin-bottom: 24px;
   }
+
   
   .product-category-buy-btn:focus {
     outline: 2px solid #000;
@@ -80,14 +87,23 @@
   
   /* Wishlist */
   .product-category-fav-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
+    background-color: transparent;
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    margin-top: 24px;
+    align-items: center;
     border: none;
-    width: 28px;
-    height: 28px;
     cursor: pointer;
+    padding: 0px;
   }
+
+  .product-category-fav-btn span{
+    font-size: 23px;
+    width: 32px;
+    height: 32px;
+  }
+
   
   .product-category-fav-btn.active {
     color: red;
@@ -102,8 +118,13 @@
   
   @media (max-width: 768px) {
     .product-category-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
+    }
+
+    .product-category-card .secondary-btn {
+      width: 100%;
+      max-width: 183px;
     }
   
     .product-category-title {
@@ -113,11 +134,24 @@
     .product-category-price {
       font-size: 16px;
     }
+    .product-category-image{
+      margin: 0px;
+    }
   }
   
   @media (max-width: 480px) {
     .product-category-tabs {
       gap: 16px;
       font-size: 13px;
+    }
+
+    .product-category-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-category-card .secondary-btn {
+      max-width: 100%;
+      padding-left: 12px;
+      padding-right: 12px;
     }
   }

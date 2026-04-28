@@ -17,6 +17,7 @@ body {
   font-family: var(--primary-font);
   margin: 0;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 // .container {
@@ -51,9 +52,10 @@ body {
 
 .container {
   // max-width: 1200px;
-  max-width: toRem(1150);
+  max-width: toRem(1120);
   margin: 0 auto;
-  padding: 0 toRem(16);
+  width: 90%;
+  // padding: 0 toRem(16);
 }
 
 section{
