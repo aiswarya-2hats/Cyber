@@ -4,76 +4,213 @@
 
   <div class="featured-products__grid">
 
-    <article class="featured-products__card">
-      <h3 class="featured-products__title">Popular Products</h3>
+    <article class="featired-product">
+      <div class="featured-products__card featured-card1">
 
       <picture>
-        <source srcset="images/watch.webp" type="image/webp">
-        <img src="images/watch.png" alt="Smart watch with earbuds" loading="lazy">
-      </picture>
+        <!-- Mobile (up to 767px) -->
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            uploads/popular-products1x-web.png 1x,
+            uploads/popular-products2x-web.png 2x
+          "
+        />
+      
+        <!-- Desktop (768px and above) -->
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            uploads/popular-products1x-web.png 1x,
+            uploads/popular-products2x-web.png 2x
+          "
+        />
+      
+        <!-- Fallback -->
+        <img
+          src="uploads/popular-products1x-web.png"
+          srcset="
+            uploads/popular-products1x-web.png 1x,
+            uploads/popular-products2x-web.png 2x
+          "
+          alt="Smart watch with earbuds"
+          class="featured-product-category-image"
+          loading="lazy"
+          decoding="async"
+          width="160"
+          height="160"
+        />
+      </picture> 
+
+      <div class="featured-products__content">
+      <h2 class="featured-products__title">Popular Products</h2>     
 
       <p class="featured-products__desc">
         iPad combines a magnificent 10.2-inch Retina display, incredible performance,
         multitasking and ease of use.
       </p>
 
-      <button class="featured-products__btn" aria-label="Shop popular products">
+      <button class="primary-btn" aria-label="Shop popular products">
         Shop Now
       </button>
+      </div>
+    </div>
+
     </article>
 
-    <article class="featured-products__card">
-      <h3 class="featured-products__title">iPad Pro</h3>
-
+    <article class="featired-product" >
+<div class="featured-products__card featured-card2">
       <picture>
-        <source srcset="images/ipad.webp" type="image/webp">
-        <img src="images/ipad.png" alt="Apple iPad Pro tablet" loading="lazy">
+        <!-- Mobile (up to 767px) -->
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            uploads/ipad1x-mob.png 1x,
+            uploads/ipad2x-mob.png 2x
+          "
+        />
+      
+        <!-- Desktop (768px and above) -->
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            uploads/ipad1x-web.png 1x,
+            uploads/ipad2x-web.png 2x
+          "
+        />
+      
+        <!-- Fallback -->
+        <img
+          src="uploads/ipad1x-web.png"
+          srcset="
+            uploads/ipad1x-web.png 1x,
+            uploads/ipad2x-web.png 2x
+          "
+          alt="Apple iPad Pro tablet"
+          class="featured-product-category-image"
+          loading="lazy"
+          decoding="async"
+        />
       </picture>
+      <div class="featured-products__content">
+
+      <h2 class="featured-products__title">Ipad Pro</h2>
 
       <p class="featured-products__desc">
         iPad combines a magnificent 10.2-inch Retina display, incredible performance,
         multitasking and ease of use.
       </p>
 
-      <button class="featured-products__btn" aria-label="Shop iPad Pro">
+      <button class="primary-btn" aria-label="Shop iPad Pro">
         Shop Now
       </button>
+</div>
+</div>
     </article>
 
-    <article class="featured-products__card">
-      <h3 class="featured-products__title">Samsung Galaxy</h3>
-
-      <picture>
-        <source srcset="images/samsung.webp" type="image/webp">
-        <img src="images/samsung.png" alt="Samsung Galaxy fold phone" loading="lazy">
-      </picture>
+    <article class="featired-product" >
+<div class="featured-products__card featured-card3">
+        <picture>
+          <!-- Mobile (up to 767px) -->
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              uploads/galexy1x-mob.png 1x,
+              uploads/galexy2x-mob.png 2x
+            "
+          />
+        
+          <!-- Desktop (768px and above) -->
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              uploads/galexy1x-web.png 1x,
+              uploads/galexy2x-web.png 2x
+            "
+          />
+        
+          <!-- Fallback -->
+          <img
+            src="uploads/galexy1x-web.png"
+            srcset="
+              uploads/galexy1x-web.png 1x,
+              uploads/galexy2x-web.png 2x
+            "
+            alt="Samsung Galaxy fold phone"
+            class="featured-product-category-image"
+            loading="lazy"
+            decoding="async"
+            width="160"
+            height="160"
+          />
+        </picture>  
+        <div class="featured-products__content">
+   
+        <h2 class="featured-products__title">Samsung Galaxy</h2>
 
       <p class="featured-products__desc">
         iPad combines a magnificent 10.2-inch Retina display, incredible performance,
         multitasking and ease of use.
       </p>
 
-      <button class="featured-products__btn" aria-label="Shop Samsung Galaxy">
+      <button class="primary-btn" aria-label="Shop Samsung Galaxy">
         Shop Now
       </button>
+      </div>
+    </div>
     </article>
 
-    <article class="featured-products__card featured-products__card--dark">
-      <h3 class="featured-products__title">Macbook Pro</h3>
-
+    <article class="featired-product" >
+<div class="featured-products__card featured-products__card--dark">
       <picture>
-        <source srcset="images/macbook.webp" type="image/webp">
-        <img src="images/macbook.png" alt="Apple MacBook Pro laptop" loading="lazy">
+        <!-- Mobile (up to 767px) -->
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            uploads/featured-mac1x-mob.png 1x,
+            uploads/featured-mac2x-mob.png 2x
+          "
+        />
+      
+        <!-- Desktop (768px and above) -->
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            uploads/featured-mac1x-web.png 1x,
+            uploads/featured-mac2x-web.png 2x
+          "
+        />
+      
+        <!-- Fallback -->
+        <img
+            src="uploads/featured-mac1x-web.png"
+          srcset="
+            uploads/featured-mac1x-web.png 1x,
+            uploads/featured-mac2x-web.png 2x
+          "
+          alt="Apple MacBook Pro laptop"
+          class="featured-product-category-image"
+          loading="lazy"
+          decoding="async"
+          width="160"
+          height="160"
+        />
       </picture>
+      <div class="featured-products__content">
 
-      <p class="featured-products__desc">
+      <h2 class="featured-products__title featured-card-Macbook-title">Macbook Pro</h2>
+
+      <p class="featured-products__desc featured-card-Macbook-desc">
         iPad combines a magnificent 10.2-inch Retina display, incredible performance,
         multitasking and ease of use.
       </p>
 
-      <button class="featured-products__btn" aria-label="Shop MacBook Pro">
+      <button class="white-btn" aria-label="Shop MacBook Pro">
         Shop Now
       </button>
+      </div>
+      </div>
+
     </article>
 
   </div>
@@ -90,14 +227,14 @@
       <img src="images/ipad-large.png" alt="Apple iPad Pro front and back view">
     </picture>
 
-    <h3 class="featured-products__slide-title">iPad Pro</h3>
+    <h2 class="featured-products__slide-title">iPad Pro</h2>
 
     <p class="featured-products__slide-desc">
       iPad combines a magnificent 10.2-inch Retina display, incredible performance,
       multitasking and ease of use.
     </p>
 
-    <button class="featured-products__btn" aria-label="Shop iPad Pro">
+    <button class="primary-btn" aria-label="Shop iPad Pro">
       Shop Now
     </button>
 
