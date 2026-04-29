@@ -70,6 +70,9 @@ const menuToggle = document.querySelector(".menu-toggle");
 const sidebar = document.querySelector(".mobile-sidebar");
 const closeButton = document.querySelector(".sidebar-close");
 const overlay = document.querySelector(".sidebar-overlay");
+const navLinks = Array.from(
+  document.querySelectorAll(".nav a[data-nav-item], .mobile-nav a[data-nav-item]")
+);
 let lastFocusedElement = null;
 
 const FOCUSABLE_SELECTOR =
@@ -169,6 +172,24 @@ const trapSidebarFocus = (event) => {
     firstElement.focus();
   }
 };
+
+const setActiveNavItem = (itemKey) => {
+  navLinks.forEach((link) => {
+    if (link.dataset.navItem === itemKey) {
+      link.setAttribute("aria-current", "page");
+      return;
+    }
+    link.removeAttribute("aria-current");
+  });
+};
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const itemKey = link.dataset.navItem;
+    if (!itemKey) return;
+    setActiveNavItem(itemKey);
+  });
+});
 
 if (menuToggle && sidebar && closeButton && overlay) {
   setSidebarFocusableState(false);
