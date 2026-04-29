@@ -1,56 +1,62 @@
-const featuredProductsMobile = document.querySelector(".featured-products__mobile");
+const featuredProductsSection = document.querySelector(".featured-products");
 
-if (featuredProductsMobile) {
-  const slidesContainer = featuredProductsMobile.querySelector(
-    ".featured-products__slides"
-  );
-  const slidesTrack = featuredProductsMobile.querySelector(
-    ".featured-products__track"
-  );
+if (featuredProductsSection) {
+  const slidesTrack = featuredProductsSection.querySelector(".featured-products__track");
+  const slidesViewport = featuredProductsSection.querySelector(".featured-products__grid");
   const slides = Array.from(
-    featuredProductsMobile.querySelectorAll(".featured-products__slide")
+    featuredProductsSection.querySelectorAll(".featured-products__item")
   );
   const dots = Array.from(
-    featuredProductsMobile.querySelectorAll(".featured-products__dot")
+    featuredProductsSection.querySelectorAll(".featured-products__dot")
   );
+  const mobileMediaQuery = window.matchMedia("(max-width: 1046px)");
 
-  if (slides.length && dots.length) {
+  if (slidesTrack && slidesViewport && slides.length && dots.length) {
     let activeIndex = 0;
     let startX = 0;
     let currentDeltaX = 0;
     let isDragging = false;
 
+    const clampSlideIndex = (index) =>
+      Math.max(0, Math.min(index, slides.length - 1));
+
+    const isMobileSlider = () => mobileMediaQuery.matches;
+
     const updateStableHeight = () => {
-      if (!slidesContainer) return;
+      if (!isMobileSlider()) {
+        slidesViewport.style.height = "";
+        return;
+      }
+
       const maxHeight = slides.reduce(
         (height, slide) => Math.max(height, slide.offsetHeight),
         0
       );
-      slidesContainer.style.height = `${maxHeight}px`;
+      slidesViewport.style.height = `${maxHeight}px`;
     };
 
     const setActiveSlide = (index) => {
-      activeIndex = index;
-      if (slidesTrack) {
-        slidesTrack.style.transform = `translateX(-${index * 100}%)`;
+      activeIndex = clampSlideIndex(index);
+
+      if (isMobileSlider()) {
+        slidesTrack.style.transform = `translateX(-${activeIndex * 100}%)`;
+      } else {
+        slidesTrack.style.transform = "";
       }
 
       slides.forEach((slide, slideIndex) => {
-        slide.setAttribute("aria-hidden", String(slideIndex !== index));
+        slide.setAttribute("aria-hidden", String(slideIndex !== activeIndex));
       });
 
       dots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === index;
+        const isActive = dotIndex === activeIndex;
         dot.classList.toggle("featured-products__dot--active", isActive);
         dot.setAttribute("aria-selected", String(isActive));
       });
     };
 
-    const clampSlideIndex = (index) =>
-      Math.max(0, Math.min(index, slides.length - 1));
-
     const handleDragStart = (event) => {
-      if (!slidesTrack || !slidesContainer) return;
+      if (!isMobileSlider()) return;
       isDragging = true;
       startX = event.touches[0].clientX;
       currentDeltaX = 0;
@@ -58,26 +64,32 @@ if (featuredProductsMobile) {
     };
 
     const handleDragMove = (event) => {
-      if (!isDragging || !slidesTrack || !slidesContainer) return;
+      if (!isDragging || !isMobileSlider()) return;
       const touchX = event.touches[0].clientX;
       currentDeltaX = touchX - startX;
-      const containerWidth = slidesContainer.offsetWidth || 1;
+      const containerWidth = slidesViewport.offsetWidth || 1;
       const currentTranslate = -activeIndex * containerWidth + currentDeltaX;
       slidesTrack.style.transform = `translateX(${currentTranslate}px)`;
     };
 
     const handleDragEnd = () => {
-      if (!isDragging || !slidesTrack || !slidesContainer) return;
+      if (!isDragging || !isMobileSlider()) return;
       isDragging = false;
       slidesTrack.style.transition = "transform 0.45s ease";
 
-      const threshold = (slidesContainer.offsetWidth || 1) * 0.15;
+      const threshold = (slidesViewport.offsetWidth || 1) * 0.15;
       if (Math.abs(currentDeltaX) > threshold) {
         const direction = currentDeltaX > 0 ? -1 : 1;
-        setActiveSlide(clampSlideIndex(activeIndex + direction));
+        setActiveSlide(activeIndex + direction);
       } else {
         setActiveSlide(activeIndex);
       }
+    };
+
+    const syncOnViewportChange = () => {
+      slidesTrack.style.transition = "transform 0.45s ease";
+      updateStableHeight();
+      setActiveSlide(activeIndex);
     };
 
     dots.forEach((dot, dotIndex) => {
@@ -86,16 +98,20 @@ if (featuredProductsMobile) {
       });
     });
 
-    slidesContainer?.addEventListener("touchstart", handleDragStart, {
+    slidesViewport.addEventListener("touchstart", handleDragStart, {
       passive: true,
     });
-    slidesContainer?.addEventListener("touchmove", handleDragMove, {
+    slidesViewport.addEventListener("touchmove", handleDragMove, {
       passive: true,
     });
-    slidesContainer?.addEventListener("touchend", handleDragEnd);
-    slidesContainer?.addEventListener("touchcancel", handleDragEnd);
+    slidesViewport.addEventListener("touchend", handleDragEnd);
+    slidesViewport.addEventListener("touchcancel", handleDragEnd);
 
-    window.addEventListener("resize", updateStableHeight);
+    window.addEventListener("resize", syncOnViewportChange);
+    if (typeof mobileMediaQuery.addEventListener === "function") {
+      mobileMediaQuery.addEventListener("change", syncOnViewportChange);
+    }
+
     slides.forEach((slide) => {
       const image = slide.querySelector("img");
       if (image) {
@@ -103,7 +119,6 @@ if (featuredProductsMobile) {
       }
     });
 
-    updateStableHeight();
-    setActiveSlide(activeIndex);
+    syncOnViewportChange();
   }
 }
