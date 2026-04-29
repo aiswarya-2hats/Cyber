@@ -64,30 +64,6 @@
   color: var(--primary-color);
 }
 
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: var(--primary-color);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.25s ease;
-}
-
-.nav a[aria-current="page"]::after {
-  transform: scaleX(1);
-}
-
-.nav a:hover::after {
-  transform: scaleX(1);
-}
-
-
-
-
 /* Actions */
 .actions {
   display: flex;
