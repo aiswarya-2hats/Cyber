@@ -34,7 +34,7 @@
     // height: 432px;
     background: #F6F6F6;
     padding: 0px 16px;
-    border-radius: 12px;
+    border-radius: 9px;
     text-align: center;
     position: relative;
     min-width: 0;
@@ -110,11 +110,15 @@
     padding: 0px;
   }
 
-  .product-category-fav-btn span{
+  .product-category-fav-btn span {
     font-size: 23px;
     width: 32px;
     height: 32px;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
   
   .product-category-fav-btn.active {
@@ -140,11 +144,15 @@
     }
   
     .product-category-title {
-      font-size: 13px;
+      font-size: 16px;
     }
   
     .product-category-price {
-      font-size: 16px;
+      font-size: 24px;
+    }
+
+    .product-category-card{
+      padding: 0px 12px;
     }
   }
   
