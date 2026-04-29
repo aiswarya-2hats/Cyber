@@ -8,21 +8,47 @@ if (categorySection) {
   const nextBtn = categorySection.querySelector(".category-next");
 
   if (sliderViewport && sliderTrack && pages.length) {
-    let activePage = 0;
+    let activeStep = 0;
+    const SLIDE_TRANSITION = "transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)";
+
     let touchStartX = 0;
     let touchDeltaX = 0;
     let isDragging = false;
 
-    const getMaxPage = () => pages.length - 1;
+    const getColumnsPerPage = () => {
+      if (window.innerWidth <= 576) return 2;
+      if (window.innerWidth <= 992) return 3;
+      return 6;
+    };
+
+    const getCardGap = () => {
+      const firstPage = pages[0];
+      if (!firstPage) return 16;
+      const computed = window.getComputedStyle(firstPage);
+      return parseFloat(computed.columnGap || computed.gap || "16") || 16;
+    };
+
+    const getMaxStep = () => {
+      const columnsPerPage = getColumnsPerPage();
+      const totalColumns = pages.length * columnsPerPage;
+      return Math.max(0, totalColumns - columnsPerPage);
+    };
 
     const updateSlider = () => {
       const viewportWidth = sliderViewport.clientWidth;
-      const gap = 24;
-      const translateX = activePage * (viewportWidth + gap);
+      const columnsPerPage = getColumnsPerPage();
+      const gap = getCardGap();
+      const cardWidth = (viewportWidth - gap * (columnsPerPage - 1)) / columnsPerPage;
+      const translateX = activeStep * (cardWidth + gap);
       sliderTrack.style.transform = `translateX(-${translateX}px)`;
 
-      if (prevBtn) prevBtn.disabled = activePage === 0;
-      if (nextBtn) nextBtn.disabled = activePage >= getMaxPage();
+      const maxStep = getMaxStep();
+      if (activeStep > maxStep) {
+        activeStep = maxStep;
+      }
+
+      if (prevBtn) prevBtn.disabled = activeStep === 0;
+      if (nextBtn) nextBtn.disabled = activeStep >= maxStep;
     };
 
     const handleTouchStart = (event) => {
@@ -37,22 +63,24 @@ if (categorySection) {
       const currentX = event.touches[0].clientX;
       touchDeltaX = currentX - touchStartX;
       const viewportWidth = sliderViewport.clientWidth;
-      const gap = 24;
-      const baseTranslate = activePage * (viewportWidth + gap);
+      const columnsPerPage = getColumnsPerPage();
+      const gap = getCardGap();
+      const cardWidth = (viewportWidth - gap * (columnsPerPage - 1)) / columnsPerPage;
+      const baseTranslate = activeStep * (cardWidth + gap);
       sliderTrack.style.transform = `translateX(${-(baseTranslate - touchDeltaX)}px)`;
     };
 
     const handleTouchEnd = () => {
       if (!isDragging) return;
       isDragging = false;
-      sliderTrack.style.transition = "transform 0.45s ease";
+      sliderTrack.style.transition = SLIDE_TRANSITION;
 
       const threshold = (sliderViewport.clientWidth || 1) * 0.15;
       if (Math.abs(touchDeltaX) > threshold) {
         if (touchDeltaX < 0) {
-          activePage = Math.min(getMaxPage(), activePage + 1);
+          activeStep = Math.min(getMaxStep(), activeStep + 1);
         } else {
-          activePage = Math.max(0, activePage - 1);
+          activeStep = Math.max(0, activeStep - 1);
         }
       }
 
@@ -60,12 +88,12 @@ if (categorySection) {
     };
 
     prevBtn?.addEventListener("click", () => {
-      activePage = Math.max(0, activePage - 1);
+      activeStep = Math.max(0, activeStep - 1);
       updateSlider();
     });
 
     nextBtn?.addEventListener("click", () => {
-      activePage = Math.min(getMaxPage(), activePage + 1);
+      activeStep = Math.min(getMaxStep(), activeStep + 1);
       updateSlider();
     });
 
@@ -77,6 +105,8 @@ if (categorySection) {
     });
     sliderViewport.addEventListener("touchend", handleTouchEnd);
     sliderViewport.addEventListener("touchcancel", handleTouchEnd);
+
+    sliderTrack.style.transition = SLIDE_TRANSITION;
 
     window.addEventListener("resize", updateSlider);
     updateSlider();
