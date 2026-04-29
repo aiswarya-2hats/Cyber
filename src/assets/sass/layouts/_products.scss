@@ -120,10 +120,14 @@
 }
 
 
-  
+.product-category-fav-btn .icon-Like3 {
+  font-size: 30px !important;
+}
+
   .product-category-fav-btn.active {
     color: red;
   }
+
 
   /* Responsive */
   @media (max-width: 1024px) {

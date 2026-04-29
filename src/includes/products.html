@@ -378,8 +378,22 @@
     (function () {
       const tabs = document.querySelectorAll(".product-category-tab");
       const cards = document.querySelectorAll(".product-category-card");
+      const favButtons = document.querySelectorAll(".product-category-fav-btn");
 
       if (!tabs.length || !cards.length) return;
+
+      const updateWishlistIcon = (button) => {
+        const icon = button.querySelector(".icon");
+        if (!icon) return;
+
+        const isActive = button.classList.contains("active");
+        icon.classList.toggle("icon-Like3", isActive);
+        icon.classList.toggle("icon-Vector15", !isActive);
+        button.setAttribute(
+          "aria-label",
+          isActive ? "Remove from wishlist" : "Add to wishlist"
+        );
+      };
 
       const setActiveTab = (activeTab) => {
         tabs.forEach((tab) => {
@@ -413,6 +427,14 @@
           const { filter } = tab.dataset;
           setActiveTab(tab);
           renderCards(filter);
+        });
+      });
+
+      favButtons.forEach((button) => {
+        updateWishlistIcon(button);
+        button.addEventListener("click", () => {
+          button.classList.toggle("active");
+          updateWishlistIcon(button);
         });
       });
 
