@@ -1,80 +1,84 @@
 const categorySection = document.querySelector(".category-section");
 
 if (categorySection) {
-  const sliderElement = categorySection.querySelector(".category-slider-viewport");
+  const sliderViewport = categorySection.querySelector(".category-slider-viewport");
+  const sliderTrack = categorySection.querySelector(".category-track");
+  const pages = Array.from(categorySection.querySelectorAll(".category-grid"));
   const prevBtn = categorySection.querySelector(".category-prev");
   const nextBtn = categorySection.querySelector(".category-next");
-  const desktopMediaQuery = window.matchMedia("(min-width: 769px)");
 
-  if (sliderElement && typeof Swiper !== "undefined") {
-    let categorySwiper = null;
-    let isDesktopView = desktopMediaQuery.matches;
+  if (sliderViewport && sliderTrack && pages.length) {
+    let activePage = 0;
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+    let isDragging = false;
 
-    const createCategorySwiper = () =>
-      new Swiper(sliderElement, {
-        speed: 450,
-        loop: false,
-        slidesPerGroup: 1,
-        watchOverflow: true,
-        observer: true,
-        observeParents: true,
-        spaceBetween: 32,
-        slidesPerView: 6,
-        navigation: {
-          prevEl: prevBtn,
-          nextEl: nextBtn,
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 2,
-            spaceBetween: 16,
-            grid: {
-              rows: 3,
-              fill: "row",
-            },
-          },
-          769: {
-            slidesPerView: 6,
-            spaceBetween: 32,
-            grid: {
-              rows: 1,
-              fill: "row",
-            },
-          },
-        },
-      });
+    const getMaxPage = () => pages.length - 1;
 
-    const refreshCategorySwiper = () => {
-      const nextIsDesktopView = desktopMediaQuery.matches;
+    const updateSlider = () => {
+      const viewportWidth = sliderViewport.clientWidth;
+      const gap = 24;
+      const translateX = activePage * (viewportWidth + gap);
+      sliderTrack.style.transform = `translateX(-${translateX}px)`;
 
-      if (!categorySwiper) {
-        categorySwiper = createCategorySwiper();
-        isDesktopView = nextIsDesktopView;
-        return;
-      }
-
-      if (isDesktopView !== nextIsDesktopView) {
-        categorySwiper.destroy(true, true);
-        categorySwiper = createCategorySwiper();
-        isDesktopView = nextIsDesktopView;
-        return;
-      }
-
-      categorySwiper.updateSize();
-      categorySwiper.updateSlides();
-      categorySwiper.updateProgress();
-      categorySwiper.updateSlidesClasses();
-      categorySwiper.update();
+      if (prevBtn) prevBtn.disabled = activePage === 0;
+      if (nextBtn) nextBtn.disabled = activePage >= getMaxPage();
     };
 
-    refreshCategorySwiper();
+    const handleTouchStart = (event) => {
+      isDragging = true;
+      touchStartX = event.touches[0].clientX;
+      touchDeltaX = 0;
+      sliderTrack.style.transition = "none";
+    };
 
-    if (typeof desktopMediaQuery.addEventListener === "function") {
-      desktopMediaQuery.addEventListener("change", refreshCategorySwiper);
-    } else if (typeof desktopMediaQuery.addListener === "function") {
-      desktopMediaQuery.addListener(refreshCategorySwiper);
-    }
+    const handleTouchMove = (event) => {
+      if (!isDragging) return;
+      const currentX = event.touches[0].clientX;
+      touchDeltaX = currentX - touchStartX;
+      const viewportWidth = sliderViewport.clientWidth;
+      const gap = 24;
+      const baseTranslate = activePage * (viewportWidth + gap);
+      sliderTrack.style.transform = `translateX(${-(baseTranslate - touchDeltaX)}px)`;
+    };
 
-    window.addEventListener("resize", refreshCategorySwiper);
+    const handleTouchEnd = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      sliderTrack.style.transition = "transform 0.45s ease";
+
+      const threshold = (sliderViewport.clientWidth || 1) * 0.15;
+      if (Math.abs(touchDeltaX) > threshold) {
+        if (touchDeltaX < 0) {
+          activePage = Math.min(getMaxPage(), activePage + 1);
+        } else {
+          activePage = Math.max(0, activePage - 1);
+        }
+      }
+
+      updateSlider();
+    };
+
+    prevBtn?.addEventListener("click", () => {
+      activePage = Math.max(0, activePage - 1);
+      updateSlider();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      activePage = Math.min(getMaxPage(), activePage + 1);
+      updateSlider();
+    });
+
+    sliderViewport.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+    sliderViewport.addEventListener("touchmove", handleTouchMove, {
+      passive: true,
+    });
+    sliderViewport.addEventListener("touchend", handleTouchEnd);
+    sliderViewport.addEventListener("touchcancel", handleTouchEnd);
+
+    window.addEventListener("resize", updateSlider);
+    updateSlider();
   }
 }
