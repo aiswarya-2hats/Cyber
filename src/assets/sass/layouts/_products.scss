@@ -67,18 +67,29 @@
     font-weight: var(--fw-regular);
     color: var(--primary-color);
     margin-top: 0px;
-    flex-grow: 1;
+    min-height: 48px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .product-category-title:empty::before {
+    content: "\00a0";
   }
   
   /* Price */
   .product-category-price {
     font-size: 24px;
     font-weight: var(--fw-semibold);
-    margin-top: auto;
     margin-bottom: 12px;
     color: var(--primary-color);
     margin-bottom: 16px;
 }
+
+  .product-category-card .secondary-btn {
+    margin-top: auto;
+  }
   
   /* Button */
   .product-category-buy-btn {
