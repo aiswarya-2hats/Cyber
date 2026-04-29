@@ -1,0 +1,125 @@
+/* ===== CTA BANNER ===== */
+.cta-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem;
+    overflow: hidden;
+  
+    background: linear-gradient(135deg, #2a2a2d, #0f0f10);
+    color: #fff;
+  }
+  
+  /* ===== CONTENT ===== */
+  .cta-banner__content {
+    text-align: center;
+    max-width: 600px;
+    z-index: 2;
+  }
+  
+  .cta-banner__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+  
+  .cta-banner__title span {
+    font-weight: 600;
+  }
+  
+  .cta-banner__text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #b5b5b5;
+  }
+  
+  /* BUTTON */
+  .cta-banner__button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-banner__button:hover,
+  .cta-banner__button:focus {
+    background: #fff;
+    color: #000;
+    outline: none;
+  }
+  
+  /* ===== MEDIA IMAGES ===== */
+  .cta-banner__media {
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    z-index: 1;
+  }
+  
+  .cta-banner__media--left {
+    left: 0;
+    bottom: 0;
+    align-items: flex-end;
+  }
+  
+  .cta-banner__media--right {
+    right: 0;
+    bottom: 0;
+    align-items: flex-end;
+  }
+  
+  .cta-banner__media img {
+    max-height: 220px;
+    object-fit: contain;
+    pointer-events: none;
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .cta-banner__media img {
+      max-height: 180px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cta-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+  
+    .cta-banner__media {
+      position: relative;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  
+    .cta-banner__media--left,
+    .cta-banner__media--right {
+      left: auto;
+      right: auto;
+      bottom: auto;
+    }
+  
+    .cta-banner__media img {
+      max-height: 140px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cta-banner__title {
+      font-size: 1.8rem;
+    }
+  
+    .cta-banner__button {
+      width: 100%;
+      text-align: center;
+    }
+  }
