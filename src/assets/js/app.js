@@ -3,3 +3,4 @@
 //=require app/hero.js
 //=require app/categoryslider.js
 //=require app/productsfilter.js
+//=require app/featuredproductsslider.js
