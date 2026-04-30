@@ -59,6 +59,21 @@
     max-width: toRem(420);
     display: block;
   }
+
+
+  @media(min-width:705px) and (max-width:1131px){
+    .hero {
+      height: auto;
+    }
+    .hero__title {
+      line-height: 95px;
+      font-size: 80px;
+  }
+
+  .hero__description{
+    margin-top: 0px;
+  }
+  }
   
   @media (min-width: 768px) {
   
@@ -101,13 +116,14 @@
     .hero__tagline {
         margin-top: toRem(88);
         margin-bottom: toRem(16);
+        width: 100%;
     }
     .hero__content {
         z-index: 2;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
     }
     .hero__description{
       margin-top: toRem(16);

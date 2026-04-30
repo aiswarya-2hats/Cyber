@@ -171,7 +171,18 @@
   font-size: 14px;
 }
 
-@media (max-width: 970px) {
+.search input::placeholder {
+  font-size: 14px;
+}
+
+@media(min-wdth:1057px) and (max-width:936px){
+  .search .search-icon {
+    position: absolute;
+    left: 37px !important;
+  }
+}
+
+@media (max-width: 1057px) {
   .search {
     display: none;
   }
@@ -189,6 +200,12 @@
     display: block;
     margin-left: 2px;
   }
+  
+    .search .search-icon {
+    position: absolute;
+    left: 37px !important;
+  }
+
 }
 
 @media(min-width:952px) and (max-width:1093px){
@@ -236,7 +253,7 @@
 
 
 
-@media (min-width: 769px) {
+@media (min-width: 1058px) {
   .mobile-sidebar,
   .sidebar-overlay {
     display: none;
