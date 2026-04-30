@@ -5,3 +5,4 @@
 //=require app/productsfilter.js
 //=require app/featuredproductsslider.js
 //=require app/discountproducts.js
+//=require app/copyright.js
