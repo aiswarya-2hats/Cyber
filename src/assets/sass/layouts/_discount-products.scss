@@ -196,9 +196,9 @@ padding-top: 0px;
 }
 
 @media (max-width: 768px) {
-  .discount-products__buy-btn {
-    width: 100%;
-    max-width: toRem(183);
+  .discount-products__card .secondary-btn {
+    // width: 100%;
+    max-width: 100%;
   }
 
   .discount-products__title {
@@ -224,14 +224,14 @@ padding-top: 0px;
 }
 
 @media (max-width: 480px) {
-  .discount-products__buy-btn {
+  .discount-products__card .secondary-btn {
     max-width: 100%;
     padding-left: toRem(12);
     padding-right: toRem(12);
   }
 
   .discount-products__title {
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
