@@ -1,5 +1,9 @@
 
 
+body.has-sticky-header {
+  padding-top: var(--header-offset, 0px);
+}
+
 .site-header {
   width: 100%;
   background: #fff;
