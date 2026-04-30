@@ -75,6 +75,7 @@ const navLinks = Array.from(
 );
 let lastFocusedElement = null;
 let lockedScrollY = 0;
+let isSidebarClosing = false;
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -154,9 +155,11 @@ const openSidebar = () => {
 };
 
 const closeSidebar = () => {
+  if (!sidebar.classList.contains("is-open") || isSidebarClosing) return;
+
+  isSidebarClosing = true;
   sidebar.classList.remove("is-open");
   overlay.classList.remove("is-visible");
-  unlockPageScroll();
   sidebar.setAttribute("aria-hidden", "true");
   menuToggle.setAttribute("aria-expanded", "false");
   setSidebarFocusableState(false);
@@ -223,7 +226,9 @@ if (menuToggle && sidebar && closeButton && overlay) {
 
   sidebar.addEventListener("transitionend", () => {
     if (!sidebar.classList.contains("is-open")) {
+      unlockPageScroll();
       overlay.hidden = true;
+      isSidebarClosing = false;
     }
   });
 }
