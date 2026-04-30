@@ -166,23 +166,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // ✅ FILTER LOGIC (FINAL FIX)
+  const isMobileView = () => window.matchMedia("(max-width: 768px)").matches;
+
+  // ✅ FILTER LOGIC
   const filterCards = (category) => {
+    const mobileView = isMobileView();
+
     cards.forEach((card) => {
       const cardCategory = card.getAttribute("data-category");
 
-      // 🔥 Show ALL cards for New Arrival
       if (category === "new-arrival") {
-        card.style.display = "block"; // or "flex"
+        card.style.display = "block";
+        return;
+      }
+
+      if (cardCategory === category) {
+        card.style.display = "block";
       } else {
-        // 🔥 Filter others
-        if (cardCategory === category) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
+        card.style.display = "none";
       }
     });
+
+    // Show only first 4 cards for New Arrival on mobile.
+    if (category === "new-arrival" && mobileView) {
+      cards.forEach((card, index) => {
+        card.style.display = index < 4 ? "block" : "none";
+      });
+    }
   };
 
   // ✅ TAB CLICK
@@ -204,6 +214,12 @@ document.addEventListener("DOMContentLoaded", () => {
     activateTab(initialTab);
     filterCards(initialCategory);
   }
+
+  window.addEventListener("resize", () => {
+    const activeTab = tabs.find((tab) => tab.classList.contains("active"));
+    if (!activeTab) return;
+    filterCards(activeTab.getAttribute("data-filter"));
+  });
 
   // ✅ WISHLIST BUTTON UI UPDATE
   const updateWishlistButton = (button, isWishlisted) => {
