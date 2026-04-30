@@ -6,9 +6,9 @@
     font-size: var(--fs-body);
     font-weight: var(--fw-medium);
     transition: all 0.3s ease;
-    width: 195px;
-    height: 56px;
-    padding: 16px 56px;
+    width: toRem(195);
+    height: toRem(56);
+    padding: toRem(16) toRem(56);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,13 +26,13 @@
     font-size: var(--fs-body);
     font-weight: var(--fw-medium);
     transition: all 0.3s ease;
-    width: 195px;
-    height: 56px;
-    padding: 16px 56px;
+    width: toRem(195);
+    height: toRem(56);
+    padding: toRem(16) toRem(56);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 16px;
+    margin-top: toRem(16);
     background-color: transparent;
     cursor: pointer;
 
@@ -47,15 +47,15 @@
     font-size: var(--fs-body);
     font-weight: var(--fw-medium);
     transition: all 0.3s ease;
-    width: 183px;
-    height: 48px;
-    padding: 12px 25px;   
+    width: toRem(183);
+    height: toRem(48);
+    padding: toRem(12) toRem(25);   
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 24px;
+    margin-bottom: toRem(24);
     cursor: pointer;
 
 }
@@ -72,7 +72,7 @@ margin-top: 0px;
 }
 
 .secondary-btn{
-    width: 140px;
-    height: 48px;
+    width: toRem(140);
+    height: toRem(48);
 }
 }

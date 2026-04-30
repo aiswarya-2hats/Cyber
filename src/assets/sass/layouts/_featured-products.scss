@@ -2,13 +2,13 @@
   padding-top: 0px;
 }
 
-.featured-products__visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-}
+// .featured-products__visually-hidden {
+//   position: absolute;
+//   width: 1px;
+//   height: 1px;
+//   overflow: hidden;
+//   clip: rect(0 0 0 0);
+// }
 
 /* Desktop Grid */
 
@@ -25,8 +25,6 @@
 .featured-products__card {
   display: flex;
   flex-direction: column;
-  // width: 360px;
-  // height: 640px;
 }
 
 .featured-products__card--dark {
@@ -39,8 +37,6 @@
 
 
 .featured-products__card img {
-  // max-width: 100%;
-  // height: auto;
   margin: 1rem auto;
 }
 
@@ -69,12 +65,12 @@
 }
 
 .featured-products__dot {
-  width: 5px;
-  height: 12px;
+  width: toRem(5);
+  height: toRem(12);
   border-radius: 50%;
   background: #ccc;
   border: none;
-  margin: 0 4px;
+  margin: 0 toRem(4);
 }
 
 .featured-products__dot--active {
@@ -96,12 +92,9 @@
 }
 
 .featured-products__content{
-  padding: 0px 32px 56px 32px;
+  padding: 0px toRem(32) toRem(56) toRem(32);
 }
 
-// .featured-products picture{
-//   height: 55svh;
-// }
 
 
 .featured-card1{
@@ -129,7 +122,7 @@
 
 @media(min-width: 1047px)  and (max-width: 1285px) {
   .featured-products__card {
-    height: 630px;
+    height: toRem(630);
   }
 }
 
@@ -160,14 +153,14 @@
     display: flex;
     position: absolute;
     left: 50%;
-    bottom: 40px;
+    bottom: toRem(40);
     transform: translateX(-50%);
     z-index: 2;
     margin-top: 0;
   }
 
   .featured-products__item .featured-products__content {
-    padding-bottom: 88px;
+    padding-bottom: toRem(88);
     text-align: center;
   }
 

@@ -6,19 +6,19 @@
     justify-content: center;
     padding: 2rem;
     overflow: hidden;
-    height: 448px;
+    height: toRem(448);
     background: linear-gradient(135deg, #2a2a2d, #0f0f10);
   }
   
   /* ===== CONTENT ===== */
   .cta-banner__content {
     text-align: center;
-    max-width: 600px;
+    max-width: toRem(600);
     z-index: 2;
   }
 
   .cta-banner__content .white-btn{
-    margin-top: 16px;
+    margin-top: toRem(16);
     margin-left: auto;
     margin-right: auto;
   }
@@ -32,34 +32,18 @@
   }
   
   .cta-banner__title span {
-    font-weight: 500;
+    font-weight: var(--fw-medium);
   }
   
   .cta-banner__text {
     margin-top: 1rem;
     font-size: 1rem;
-    color: #b5b5b5;
+    color: var(--white);
   }
   
-  /* BUTTON */
-  .cta-banner__button {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.75rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 6px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-  }
+
   
-  .cta-banner__button:hover,
-  .cta-banner__button:focus {
-    background: #fff;
-    color: #000;
-    outline: none;
-  }
+ 
   
   /* ===== MEDIA IMAGES ===== */
   .cta-banner__media {
@@ -82,7 +66,7 @@
   }
   
   .cta-banner__media img {
-    max-height: 220px;
+    max-height: toRem(220);
     object-fit: contain;
     pointer-events: none;
   }
@@ -90,7 +74,7 @@
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
     .cta-banner__media img {
-      max-height: 180px;
+      max-height: toRem(180);
     }
   }
   
@@ -115,13 +99,13 @@
     }
   
     .cta-banner__media img {
-      max-height: 140px;
+      max-height: toRem(140);
     }
   }
   
   @media (max-width: 480px) {
     .cta-banner__title {
-      font-size: 48px;
+      font-size: toRem(48);
     }
   
     .cta-banner__button {
@@ -129,6 +113,6 @@
       text-align: center;
     }
     .cta-banner{
-      height:512px;
+      height:toRem(512);
     }
   }

@@ -57,7 +57,7 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
-  padding-bottom: 4px;
+  padding-bottom: toRem(4);
 }
 
 .nav a[aria-current="page"] {
@@ -128,10 +128,10 @@
 
 .mobile-nav ul {
   list-style: none;
-  margin-top: 22px;
+  margin-top: toRem(22);
   display: grid;
   gap: 35px;
-  padding-left: 20px;
+  padding-left: toRem(20);
 }
 
 .mobile-nav a {
@@ -141,19 +141,19 @@
 }
 
 .mobile-nav a[aria-current="page"] {
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
 }
 
 .actions .icon{
-  font-weight: 400;
-  font-size: 23px;
+  font-weight: var(--fw-regular);
+  font-size: toRem(23);
   color: var(--primary-color);
 }
 
 .icon-Vector10{
-  font-size: 10px;
+  font-size: toRem(10);
 }
 
 .menu-toggle .icon{
@@ -163,22 +163,20 @@
 }
 
 .sidebar-close .icon{
-  font-size: 35px;
-  font-weight: 700;
+  font-size: toRem(35);
+  font-weight: var(--fw-bold);
 }
 
 .input::placeholder {
-  font-size: 14px;
+  font-size: toRem(14);
 }
 
-.search input::placeholder {
-  font-size: 14px;
-}
+
 
 @media(min-wdth:1057px) and (max-width:936px){
   .search .search-icon {
     position: absolute;
-    left: 37px !important;
+    left: toRem(37) !important;
   }
 }
 
@@ -198,12 +196,12 @@
 
   .menu-toggle {
     display: block;
-    margin-left: 2px;
+    margin-left: toRem(2);
   }
   
     .search .search-icon {
     position: absolute;
-    left: 37px !important;
+    left: toRem(37) !important;
   }
 
 }
@@ -227,8 +225,8 @@
 @media (max-width: 768px) {
   .header-wrapper {
     flex-wrap: wrap;
-    gap: 10px 12px;
-    height: 88px;
+    gap: toRem(10) toRem(12);
+    height: toRem(88);
   }
 
   .search {
@@ -242,12 +240,12 @@
     max-width: 100%;
   }
   .container {
-    max-width: 1200px;
+    max-width: toRem(1200);
     margin: 0 auto;
   }
   .actions .icon {
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: var(--fw-regular);
+    font-size: toRem(20);
   }
 }
 

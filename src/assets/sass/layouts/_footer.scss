@@ -6,35 +6,30 @@
 }
 
 .footer__container {
-  padding: 104px 0px 0px;
+  padding: toRem(104) 0px 0px;
   display: grid;
-  gap: 40px;
+  gap: toRem(40);
   grid-template-columns: 1.5fr 1fr 1fr;
 }
 
 /* ===== BRAND ===== */
-.footer__logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
 
 .footer__description {
-  margin-bottom: 185px;
-  width: 384px;
+  margin-bottom: toRem(185);
+  width: toRem(384);
   color: #CFCFCF;
   margin-top: 0px;
 }
 
 .footer__brand img{
-    margin-bottom: 24px;
+    margin-bottom: toRem(24);
 }
 
 /* ===== NAV ===== */
 .footer__heading {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: toRem(16);
+  font-weight: var(--fw-semibold);
+  margin-bottom: toRem(16);
   color: var(--white);
   margin-top: 0px;
 }
@@ -51,7 +46,7 @@
 }
 
 .footer__nav li {
-  margin-bottom: 10px;
+  margin-bottom: toRem(10);
   color: #CFCFCF;
   
 }
@@ -65,7 +60,7 @@
 
 .footer__nav a:hover,
 .footer__nav a:focus {
-  color: #fff;
+  color: var(--white);
 }
 
 /* ===== SOCIAL ===== */
@@ -78,33 +73,28 @@
 
 .footer__social a {
   display: inline-flex;
-  width: 36px;
-  height: 36px;
+  width: toRem(36);
+  height: toRem(36);
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: #fff;
+  color: var(--white);
   transition: background 0.2s ease;
-}
-
-.footer__social a:hover,
-.footer__social a:focus {
-  background: #222;
 }
 
 
 .icon-Twitter2{
-    width: 16px;
-    height: 16px;
+    width: toRem(16);
+    height: toRem(16);
 }
 
 .footer__bottom {
     display: flex;
     justify-content: space-between;
-    max-width: 1120px;
+    max-width: toRem(1120);
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 64px;
+    padding-bottom: toRem(64);
     width: 90%;
     align-items: center;
 }
@@ -112,7 +102,8 @@
 
 .footer__copyright{
     color: #CFCFCF;
-    font-size: 14px;
+    font-size: toRem(14);
+    margin-top: 0px;
 }
 
 
@@ -128,25 +119,25 @@
     grid-column: span 2;
   }
   .footer__description {
-    margin-bottom: 35px;
+    margin-bottom: toRem(35);
   }
   .footer__bottom {
-    margin-top: 27px;
+    margin-top: toRem(27);
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .footer {
-    padding: 40px 16px;
+    padding: toRem(40) toRem(16);
   }
 
   .footer__container {
     display: flex ;
     flex-direction: column;
     text-align: center ;
-    gap: 30px;
-    padding-top: 3px;
+    gap: toRem(30);
+    padding-top: toRem(3);
   }
 
   .footer__brand {
@@ -160,10 +151,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 3px;
+    padding-bottom: toRem(3);
   }
   .footer__description {
-    margin-bottom: 20px;
+    margin-bottom: toRem(20);
 }
 
 }

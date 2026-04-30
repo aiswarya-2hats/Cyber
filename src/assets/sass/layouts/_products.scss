@@ -1,18 +1,26 @@
 
+.product-category-view-more-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: toRem(32);
+}
+
    /* Tabs */
   .product-category-tabs {
     display: flex;
     gap: 32px;
-    margin-bottom: 32px;
+    margin-bottom: toRem(32);
   }
   
   .product-category-tab {
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: toRem(18);
     color: var(--para-color);
     cursor: pointer;
-    padding: 0 0 6px 0;
+    padding: 0 0 toRem(6) 0;
     font-weight: var(--fw-medium);
     }
   
@@ -30,44 +38,39 @@
   
   /* Card */
   .product-category-card {
-    // width: 268px;
-    // height: 432px;
     background: #F6F6F6;
-    padding: 0px 16px;
+    padding: 0px toRem(16);
     border-radius: 9px;
     text-align: center;
     position: relative;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    // height: 100%;
   }
   
  
   
   /* Image */
   .product-category-card picture {
-    height: 192px;
+    height: toRem(192);
     display: flex;
     align-items: center;
     justify-content: center;
-    // margin-bottom: 16px;
   }
 
   .product-category-image {
     width: 100%;
-    // max-height: 140px;
     object-fit: contain;
     margin: 0;
    }
   
   /* Title */
   .product-category-title {
-    margin-bottom: 16px;
+    margin-bottom: toRem(16);
     font-weight: var(--fw-regular);
     color: var(--primary-color);
     margin-top: 0px;
-    min-height: 48px;
+    min-height: toRem(48);
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -80,11 +83,11 @@
   
   /* Price */
   .product-category-price {
-    font-size: 24px;
+    font-size: toRem(24);
     font-weight: var(--fw-semibold);
-    margin-bottom: 12px;
+    margin-bottom: toRem(12);
     color: var(--primary-color);
-    margin-bottom: 16px;
+    margin-bottom: toRem(16);
 }
 
   .product-category-card .secondary-btn {
@@ -94,13 +97,13 @@
   /* Button */
   .product-category-buy-btn {
     background: #000;
-    color: #fff;
+    color: var(--white);
     border: none;
-    padding: 10px;
+    padding: toRem(10);
     width: 100%;
     border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 24px;
+    margin-bottom: toRem(24);
   }
 
   
@@ -114,7 +117,7 @@
     width: 100%;
     justify-content: end;
     display: flex;
-    margin-top: 24px;
+    margin-top: toRem(24);
     align-items: center;
     border: none;
     cursor: pointer;
@@ -122,9 +125,9 @@
   }
 
   .product-category-fav-btn span {
-    font-size: 23px;
-    width: 32px;
-    height: 32px;
+    font-size: toRem(23);
+    width: toRem(32);
+    height: toRem(32);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +135,7 @@
 
 
 .product-category-fav-btn .icon-Like3 {
-  font-size: 30px !important;
+  font-size: toRem(30) !important;
 }
 
   .product-category-fav-btn.active {
@@ -141,15 +144,15 @@
 
 .wishlist-toast {
   position: fixed;
-  right: 20px;
-  top: 20px;
+  right: toRem(20);
+  top: toRem(20);
   z-index: 9999;
-  max-width: 320px;
-  padding: 12px 16px;
+  max-width: toRem(320);
+  padding: toRem(12) toRem(16);
   border-radius: 8px;
   background: #111;
-  color: #fff;
-  font-size: 14px;
+  color: var(--white);
+  font-size: toRem(14);
   line-height: 1.4;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
   opacity: 0;
@@ -179,26 +182,26 @@
 
     .product-category-card .secondary-btn {
       width: 100%;
-      max-width: 183px;
+      max-width: toRem(183);
     }
   
     .product-category-title {
-      font-size: 16px;
+      font-size: toRem(16);
     }
   
     .product-category-price {
-      font-size: 24px;
+      font-size: toRem(24);
     }
 
     .product-category-card{
-      padding: 0px 12px;
+      padding: 0px toRem(12);
     }
   }
   
   @media (max-width: 480px) {
     .product-category-tabs {
       gap: 32px;
-      font-size: 13px;
+      font-size: toRem(13);
       flex-wrap: nowrap;
       overflow-x: auto;
       overflow-y: hidden;
@@ -221,7 +224,7 @@
 
     .product-category-card .secondary-btn {
       max-width: 100%;
-      padding-left: 12px;
-      padding-right: 12px;
+      padding-left: toRem(12);
+      padding-right: toRem(12);
     }
   }

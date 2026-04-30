@@ -17,7 +17,7 @@
   .left-top {
     display: flex;
     align-items: center;
-    width: 720px;
+    width: toRem(720);
     position: relative;
   }
   .ads-left-bottom {
@@ -27,59 +27,59 @@
     display: flex;
     align-items: center;
     background-color: #EDEDED;
-    width: 360px;
+    width: toRem(360);
   }
   .ads-bottom-right {
     display: flex;
     align-items: center;
     background-color: #353535;
-    width: 360px;
+    width: toRem(360);
   }
   
   .ads-right {
     display: flex;
     align-items: center;
     background-color: #ededed;
-    width: 720px;
+    width: toRem(720);
   }
 
   .left-top-content{
     position: absolute;
     max-width: 93%;
     margin: auto;
-    padding-left: 334px;
+    padding-left: toRem(334);
   }
   
   .left-top-content h2 {
-    font-size: 49px;
-    font-weight: 500;
+    font-size: toRem(49);
+    font-weight: var(--fw-medium);
     margin: 0px;
   }
   
   .ads-right-content h2 {
-    font-size: 64px;
+    font-size: toRem(64);
     margin: 0px;
     line-height: toRem(56);
     font-weight: var(--fw-medium);
   }
   
   .ads-left-bottom h2 {
-    font-size: 29px;
+    font-size: toRem(29);
     margin: 0px;
     font-weight: var(--fw-regular);
     line-height: 40px;
   }
   
   .bottom-left-side-content {
-    padding: 0px 48px;
+    padding: 0px toRem(48);
   }
   
   .bottom-left-right-content {
-    padding: 0px 48px 0px 16px;
+    padding: 0px toRem(48) 0px toRem(16);
   }
   
   .ads-right-content {
-    padding: 157px 12px 154px 54px;
+    padding: toRem(157) toRem(12) toRem(154) toRem(54);
   }
   
 
@@ -114,6 +114,7 @@
   }
   .ads-right{
     width: auto;
+    gap:128px;
   }
   .left-top{
     width: auto;
@@ -152,6 +153,7 @@
     flex-direction: column;
   }
 
+
   .left-top,
   .ads-left-bottom,
   .ads-bottom-left,
@@ -184,9 +186,9 @@
   }
 
   .ads-wrapper h2{
-    margin-top: 24px;
-    margin-bottom: 8px;
-    font-size: 34px;
+    margin-top: toRem(24);
+    margin-bottom: toRem(8);
+    font-size: toRem(34);
   }
 
   .ads-right-content h2 {
@@ -197,11 +199,6 @@
   .left-top-content h2 {
     font-size: toRem(36);
   }
-
-  // .ads-left-bottom h2 {
-  //   font-size: toRem(26);
-  //   line-height: 1.2;
-  // }
 
   .ads-right-content .primary-btn {
     text-align: center;
@@ -227,8 +224,11 @@
     order: 3;
   }
   .ads-wrapper p{
-    padding-bottom: 40px;
+    padding-bottom: toRem(40);
     margin-top: 0px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .bottom-left-right-content br,
@@ -241,11 +241,11 @@
   }
 
   .ads-right-content p{
-    padding-bottom: 16px;
+    padding-bottom: toRem(16);
   }
 
   .ads-right-content{
-    padding-bottom: 40px;
+    padding-bottom: toRem(40);
   }
   .ads-right-content .primary-btn{
     margin-inline: auto;
