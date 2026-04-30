@@ -74,6 +74,7 @@ const navLinks = Array.from(
   document.querySelectorAll(".nav a[data-nav-item], .mobile-nav a[data-nav-item]")
 );
 let lastFocusedElement = null;
+let lockedScrollY = 0;
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -113,8 +114,29 @@ const getFocusableElements = () => {
   );
 };
 
+const lockPageScroll = () => {
+  lockedScrollY = window.scrollY || window.pageYOffset || 0;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+  document.body.style.overflow = "hidden";
+};
+
+const unlockPageScroll = () => {
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  document.body.style.overflow = "";
+  window.scrollTo(0, lockedScrollY);
+};
+
 const openSidebar = () => {
   lastFocusedElement = document.activeElement;
+  lockPageScroll();
   sidebar.classList.add("is-open");
   overlay.classList.add("is-visible");
   overlay.hidden = false;
@@ -134,6 +156,7 @@ const openSidebar = () => {
 const closeSidebar = () => {
   sidebar.classList.remove("is-open");
   overlay.classList.remove("is-visible");
+  unlockPageScroll();
   sidebar.setAttribute("aria-hidden", "true");
   menuToggle.setAttribute("aria-expanded", "false");
   setSidebarFocusableState(false);
