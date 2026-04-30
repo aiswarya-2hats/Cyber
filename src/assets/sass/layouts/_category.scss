@@ -91,6 +91,12 @@
   text-align: center;
 }
 
+.category-next{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 577px) and (max-width: 992px) {
   .category-grid {
     grid-template-columns: repeat(3, 1fr);
