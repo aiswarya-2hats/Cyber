@@ -200,6 +200,7 @@
 
 .product-category-view-more-btn .primary-btn{
   padding: 12px 50px;
+  margin-top: toRem(32);
 }
 
 
@@ -207,6 +208,20 @@
   @media (max-width: 1024px) {
     .product-category-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-category-title {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
+
+    .product-category-title br {
+      display: none;
     }
   }
   
@@ -223,6 +238,19 @@
   
     .product-category-title {
       font-size: toRem(16);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      width: 100%;
+      min-height: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+    }
+
+    .product-category-title br {
+      display: none;
     }
   
     .product-category-price {

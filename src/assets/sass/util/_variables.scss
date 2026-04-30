@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Inter";
+    src: url("#{$mainlink-font-path}/Inter-VariableFont_opsz,wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+
 /*------------------*
 # Variables
 *------------------*/
@@ -72,10 +82,3 @@ $mainlink-font-path: "../fonts";
 }
 
 
-@font-face {
-    font-family: "Inter";
-    src: url("#{$mainlink-font-path}/Inter-VariableFont_opsz,wght.woff2") format("woff2");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-  }

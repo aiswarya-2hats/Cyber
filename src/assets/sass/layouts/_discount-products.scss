@@ -104,11 +104,10 @@ padding-top: 0px;
 }
 
 .discount-products__title {
-  margin-bottom: toRem(16);
   font-weight: var(--fw-regular);
   color: var(--primary-color);
   margin-top: 0;
-  min-height: toRem(56);
+  // min-height: toRem(56);
   line-height: 1.4;
   white-space: normal;
   word-break: break-word;
@@ -179,6 +178,23 @@ padding-top: 0px;
   color: red;
 }
 
+@media (max-width: 1024px) {
+  .discount-products__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    // min-height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .discount-products__title br {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .discount-products__buy-btn {
     width: 100%;
@@ -187,8 +203,19 @@ padding-top: 0px;
 
   .discount-products__title {
     font-size: toRem(16);
-    min-height: toRem(68);
-    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    // min-height: auto;
+    // line-height: 1.45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .discount-products__title br {
+    display: none;
   }
 
   .discount-products__card {
@@ -201,5 +228,10 @@ padding-top: 0px;
     max-width: 100%;
     padding-left: toRem(12);
     padding-right: toRem(12);
+  }
+
+  .discount-products__title {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
   }
 }
