@@ -143,6 +143,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const productCategorySection = document.querySelector(".product-category-section");
   const WISHLIST_STORAGE_KEY = "wishlistProducts";
+  const PRODUCTS_EXPANDED_STATE_KEY = "productsExpandedState";
   let wishlistToastTimer = null;
 
   if (!productCategorySection) return;
@@ -153,9 +154,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = Array.from(
     productCategorySection.querySelectorAll(".product-category-card")
   );
+  const viewMoreButton = productCategorySection.querySelector(
+    ".product-category-view-more-btn .primary-btn"
+  );
   const wishlistToast = createWishlistToast();
+  const BASE_VISIBLE_COUNT = 4;
+  const NEW_ARRIVAL_BASE_VISIBLE_COUNT = 8;
+  const EXPANDED_VISIBLE_COUNT = 8;
+  const NEW_ARRIVAL_EXPANDED_VISIBLE_COUNT = 12;
+  const categories = ["new-arrival", "bestseller", "featured-products"];
 
   let wishlistItems = getWishlistItems();
+  let activeCategory = "new-arrival";
+  const expandedByCategory = {
+    "new-arrival": false,
+    bestseller: false,
+    "featured-products": false,
+  };
+
+  const savedExpandedState = getExpandedState();
+  categories.forEach((category) => {
+    if (typeof savedExpandedState[category] === "boolean") {
+      expandedByCategory[category] = savedExpandedState[category];
+    }
+  });
 
   // ✅ TAB ACTIVE STATE
   const activateTab = (selectedTab) => {
@@ -166,42 +188,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const getExpandedVisibleCountForCategory = (category) =>
+    category === "new-arrival"
+      ? NEW_ARRIVAL_EXPANDED_VISIBLE_COUNT
+      : EXPANDED_VISIBLE_COUNT;
+
+  const ensureMinimumCardsPerCategory = () => {
+    categories.forEach((category) => {
+      const categoryCards = cards.filter(
+        (card) => card.getAttribute("data-category") === category
+      );
+
+      if (!categoryCards.length) return;
+
+      const targetCount = getExpandedVisibleCountForCategory(category);
+      const clonesNeeded = targetCount - categoryCards.length;
+      for (let index = 0; index < clonesNeeded; index += 1) {
+        const sourceCard = categoryCards[index % categoryCards.length];
+        const clonedCard = sourceCard.cloneNode(true);
+        clonedCard.setAttribute("data-cloned-card", "true");
+        productCategorySection
+          .querySelector(".product-category-grid")
+          .appendChild(clonedCard);
+        cards.push(clonedCard);
+      }
+    });
+  };
+
+  const getCardsByCategory = (category) =>
+    cards.filter((card) => card.getAttribute("data-category") === category);
+
   const isMobileView = () => window.matchMedia("(max-width: 768px)").matches;
+
+  const getVisibleCountForCategory = (category) =>
+    expandedByCategory[category]
+      ? getExpandedVisibleCountForCategory(category)
+      : isMobileView()
+      ? BASE_VISIBLE_COUNT
+      : category === "new-arrival"
+      ? NEW_ARRIVAL_BASE_VISIBLE_COUNT
+      : BASE_VISIBLE_COUNT;
 
   // ✅ FILTER LOGIC
   const filterCards = (category) => {
-    const mobileView = isMobileView();
+    const cardsForCategory = getCardsByCategory(category);
+    const visibleCount = getVisibleCountForCategory(category);
 
     cards.forEach((card) => {
-      const cardCategory = card.getAttribute("data-category");
-
-      if (category === "new-arrival") {
-        card.style.display = "block";
-        return;
-      }
-
-      if (cardCategory === category) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+      card.style.display = "none";
     });
 
-    // Show only first 4 cards for New Arrival on mobile.
-    if (category === "new-arrival" && mobileView) {
-      cards.forEach((card, index) => {
-        card.style.display = index < 4 ? "block" : "none";
-      });
-    }
+    cardsForCategory.forEach((card, index) => {
+      card.style.display = index < visibleCount ? "block" : "none";
+    });
   };
+
+  const updateViewMoreButtonLabel = () => {
+    if (!viewMoreButton) return;
+    viewMoreButton.textContent = expandedByCategory[activeCategory]
+      ? "View Less"
+      : "View More";
+  };
+
+  ensureMinimumCardsPerCategory();
 
   // ✅ TAB CLICK
   tabs.forEach((tab) => {
     tab.addEventListener("click", (event) => {
       event.preventDefault();
       const selectedCategory = tab.getAttribute("data-filter");
+      if (!selectedCategory) return;
+      activeCategory = selectedCategory;
       activateTab(tab);
       filterCards(selectedCategory);
+      updateViewMoreButtonLabel();
     });
   });
 
@@ -211,14 +271,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (initialTab) {
     const initialCategory = initialTab.getAttribute("data-filter");
+    activeCategory = initialCategory || "new-arrival";
     activateTab(initialTab);
-    filterCards(initialCategory);
+    filterCards(activeCategory);
+    updateViewMoreButtonLabel();
+  }
+
+  if (viewMoreButton) {
+    viewMoreButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (viewMoreButton.dataset.loading === "true") return;
+      viewMoreButton.dataset.loading = "true";
+
+      viewMoreButton.textContent = "Loading...";
+
+      window.setTimeout(() => {
+        expandedByCategory[activeCategory] = !expandedByCategory[activeCategory];
+        saveExpandedState(expandedByCategory);
+        filterCards(activeCategory);
+        updateViewMoreButtonLabel();
+        viewMoreButton.dataset.loading = "false";
+      }, 450);
+    });
   }
 
   window.addEventListener("resize", () => {
-    const activeTab = tabs.find((tab) => tab.classList.contains("active"));
-    if (!activeTab) return;
-    filterCards(activeTab.getAttribute("data-filter"));
+    filterCards(activeCategory);
+    updateViewMoreButtonLabel();
   });
 
   // ✅ WISHLIST BUTTON UI UPDATE
@@ -328,6 +408,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveWishlistItems(items) {
     localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(items));
+  }
+
+  function getExpandedState() {
+    try {
+      const stored = JSON.parse(
+        sessionStorage.getItem(PRODUCTS_EXPANDED_STATE_KEY) || "{}"
+      );
+      return stored && typeof stored === "object" ? stored : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveExpandedState(state) {
+    sessionStorage.setItem(PRODUCTS_EXPANDED_STATE_KEY, JSON.stringify(state));
   }
 
   function createWishlistToast() {
