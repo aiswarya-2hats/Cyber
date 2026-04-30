@@ -171,6 +171,11 @@
   font-size: toRem(14);
 }
 
+input:focus {
+  border-color: #000;
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
 
 
 @media(min-wdth:1057px) and (max-width:936px){
