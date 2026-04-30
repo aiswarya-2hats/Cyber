@@ -133,7 +133,27 @@
     .hero{
       padding-bottom:0px
     }
+
+    .hero__content .white-btn{
+      margin-bottom: 48px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero__content{
+      justify-content: center;
+      align-items: center;
+      text-align: center !important;
+    }
+
    
   } 
+
+  @media(max-width:480px){
+    .hero__content{
+      justify-content: center;
+      align-items: center;
+      text-align: center !important;
+    }
+  }
   
   

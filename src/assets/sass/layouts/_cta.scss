@@ -4,12 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
     padding: 2rem;
     overflow: hidden;
-  
+    height: 448px;
     background: linear-gradient(135deg, #2a2a2d, #0f0f10);
-    color: #fff;
   }
   
   /* ===== CONTENT ===== */
@@ -18,15 +16,23 @@
     max-width: 600px;
     z-index: 2;
   }
+
+  .cta-banner__content .white-btn{
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .cta-banner__title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 300;
-    line-height: 1.2;
+    font-size: toRem(72);
+    font-weight: var(--fw-thin);
+    color: var(--white);
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
   
   .cta-banner__title span {
-    font-weight: 600;
+    font-weight: 500;
   }
   
   .cta-banner__text {
@@ -115,11 +121,14 @@
   
   @media (max-width: 480px) {
     .cta-banner__title {
-      font-size: 1.8rem;
+      font-size: 48px;
     }
   
     .cta-banner__button {
       width: 100%;
       text-align: center;
+    }
+    .cta-banner{
+      height:512px;
     }
   }
