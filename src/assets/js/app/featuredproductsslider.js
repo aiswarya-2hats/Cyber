@@ -93,7 +93,8 @@ if (featuredProductsSection) {
     };
 
     dots.forEach((dot, dotIndex) => {
-      dot.addEventListener("click", () => {
+      dot.addEventListener("click", (event) => {
+        event.preventDefault();
         setActiveSlide(dotIndex);
       });
     });

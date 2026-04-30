@@ -187,7 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ TAB CLICK
   tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
+    tab.addEventListener("click", (event) => {
+      event.preventDefault();
       const selectedCategory = tab.getAttribute("data-filter");
       activateTab(tab);
       filterCards(selectedCategory);
@@ -252,7 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateWishlistButton(wishlistButton, isWishlisted);
 
-    wishlistButton.addEventListener("click", () => {
+    wishlistButton.addEventListener("click", (event) => {
+      event.preventDefault();
       const alreadyWishlisted = wishlistItems.some(
         (item) => item.id === product.id
       );

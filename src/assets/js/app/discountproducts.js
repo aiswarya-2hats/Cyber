@@ -49,10 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     sliderTrack.style.transform = `translateX(-${translateX}px)`;
 
     if (prevBtn) {
-      prevBtn.disabled = currentSlideIndex === 0;
+      prevBtn.setAttribute("aria-disabled", String(currentSlideIndex === 0));
     }
     if (nextBtn) {
-      nextBtn.disabled = currentSlideIndex >= maxIndex;
+      nextBtn.setAttribute(
+        "aria-disabled",
+        String(currentSlideIndex >= maxIndex)
+      );
     }
   };
 
@@ -94,12 +97,16 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
+    prevBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (currentSlideIndex === 0) return;
       currentSlideIndex = Math.max(0, currentSlideIndex - 1);
       updateSliderLayout();
     });
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (currentSlideIndex >= getMaxSlideIndex()) return;
       currentSlideIndex = Math.min(getMaxSlideIndex(), currentSlideIndex + 1);
       updateSliderLayout();
     });
@@ -174,7 +181,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const isWishlisted = wishlistItems.some((item) => item.id === product.id);
     updateWishlistButton(wishlistButton, isWishlisted);
 
-    wishlistButton.addEventListener("click", () => {
+    wishlistButton.addEventListener("click", (event) => {
+      event.preventDefault();
       const alreadyWishlisted = wishlistItems.some(
         (item) => item.id === product.id
       );
