@@ -340,6 +340,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ WISHLIST LOGIC
   cards.forEach((card) => {
     const wishlistButton = card.querySelector(".product-category-fav-btn");
+    const buyNowLink = card.querySelector(".secondary-btn");
+
+    // Make full card clickable while preserving existing controls.
+    if (buyNowLink) {
+      card.style.cursor = "pointer";
+
+      card.addEventListener("click", (event) => {
+        const clickedInteractiveElement = event.target.closest("a, button, input, select, textarea");
+        if (clickedInteractiveElement) return;
+
+        buyNowLink.click();
+      });
+    }
+
     if (!wishlistButton) return;
 
     const product = getProductData(card);

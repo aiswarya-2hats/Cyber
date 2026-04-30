@@ -174,7 +174,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   cards.forEach((card) => {
+    const buyNowLink = card.querySelector(".secondary-btn");
     const wishlistButton = card.querySelector(".discount-products__fav-btn");
+
+    // Make full discount card clickable while preserving controls.
+    if (buyNowLink) {
+      card.style.cursor = "pointer";
+
+      card.addEventListener("click", (event) => {
+        const clickedInteractiveElement = event.target.closest(
+          "a, button, input, select, textarea"
+        );
+        if (clickedInteractiveElement) return;
+        if (Math.abs(touchDeltaX) > 8) return;
+
+        buyNowLink.click();
+      });
+    }
+
     if (!wishlistButton) return;
 
     const product = getProductData(card);
