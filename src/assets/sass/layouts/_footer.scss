@@ -1,11 +1,133 @@
-.footer{
-    width: 100%;
+
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #000;
 }
 
-.social-icons{
-    li{
-        &+ li{
-            margin-left: 15px;
-        }
-    }
+.footer__container {
+  padding: 104px 0px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  height: 504px;
+}
+
+/* ===== BRAND ===== */
+.footer__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footer__description {
+  margin-bottom: 185px;
+  width: 384px;
+  color: #CFCFCF;
+  margin-top: 0px;
+}
+
+.footer__brand img{
+    margin-bottom: 24px;
+}
+
+/* ===== NAV ===== */
+.footer__heading {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--white);
+  margin-top: 0px;
+}
+
+.footer__nav ul{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer__nav ul {
+  list-style: none;
+}
+
+.footer__nav li {
+  margin-bottom: 10px;
+  color: #CFCFCF;
+  
+}
+
+.footer__nav a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer__nav a:hover,
+.footer__nav a:focus {
+  color: #fff;
+}
+
+/* ===== SOCIAL ===== */
+.footer__social {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  padding: 0px;
+}
+
+.footer__social a {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.footer__social a:hover,
+.footer__social a:focus {
+  background: #222;
+}
+
+
+.icon-Twitter2{
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 933px) {
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__brand {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 16px;
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer__brand {
+    grid-column: span 1;
+  }
+
+  .footer__description {
+    max-width: 100%;
+  }
 }
