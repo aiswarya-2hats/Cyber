@@ -37,7 +37,21 @@ padding-top: 0px;
   font-size: 1.2rem;
   cursor: pointer;
   padding: toRem(6) toRem(10);
-  
+  transition: opacity 0.25s ease;
+}
+
+.discount-products__nav-btn[aria-disabled="true"] {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.discount-products__nav span{
+  color: black;
+}
+
+.discount-products__nav-btn[aria-disabled="true"] .icon {
+  color: #999;
 }
 
 .discount-products-prev .icon {

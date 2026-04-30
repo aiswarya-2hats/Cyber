@@ -65,8 +65,8 @@
 }
 
 .featured-products__dot {
-  width: toRem(5);
-  height: toRem(12);
+  width: toRem(8);
+  height: toRem(8);
   border-radius: 50%;
   background: #ccc;
   border: none;
@@ -153,7 +153,7 @@
     display: flex;
     position: absolute;
     left: 50%;
-    bottom: toRem(40);
+    bottom: toRem(60);
     transform: translateX(-50%);
     z-index: 2;
     margin-top: 0;
