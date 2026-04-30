@@ -73,6 +73,9 @@ const overlay = document.querySelector(".sidebar-overlay");
 const navLinks = Array.from(
   document.querySelectorAll(".nav a[data-nav-item], .mobile-nav a[data-nav-item]")
 );
+const mobileSearchToggle = document.querySelector(".mobile-search-toggle");
+const mobileSearchPanel = document.querySelector(".mobile-search-panel");
+const mobileSearchInput = document.querySelector("#mobile-search-input");
 let lastFocusedElement = null;
 let lockedScrollY = 0;
 let isSidebarClosing = false;
@@ -137,6 +140,7 @@ const unlockPageScroll = () => {
 
 const openSidebar = () => {
   lastFocusedElement = document.activeElement;
+  closeMobileSearch();
   lockPageScroll();
   sidebar.classList.add("is-open");
   overlay.classList.add("is-visible");
@@ -167,6 +171,36 @@ const closeSidebar = () => {
   if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
     lastFocusedElement.focus();
   }
+};
+
+const openMobileSearch = () => {
+  if (!mobileSearchToggle || !mobileSearchPanel) return;
+  mobileSearchPanel.classList.add("is-open");
+  mobileSearchPanel.setAttribute("aria-hidden", "false");
+  mobileSearchToggle.setAttribute("aria-expanded", "true");
+  if (mobileSearchInput) {
+    mobileSearchInput.focus();
+  }
+};
+
+const closeMobileSearch = () => {
+  if (!mobileSearchToggle || !mobileSearchPanel) return;
+  mobileSearchPanel.classList.remove("is-open");
+  mobileSearchPanel.setAttribute("aria-hidden", "true");
+  mobileSearchToggle.setAttribute("aria-expanded", "false");
+};
+
+const toggleMobileSearch = () => {
+  if (!mobileSearchPanel) return;
+  if (mobileSearchPanel.classList.contains("is-open")) {
+    closeMobileSearch();
+    return;
+  }
+
+  if (sidebar && sidebar.classList.contains("is-open")) {
+    closeSidebar();
+  }
+  openMobileSearch();
 };
 
 const trapSidebarFocus = (event) => {
@@ -231,4 +265,8 @@ if (menuToggle && sidebar && closeButton && overlay) {
       isSidebarClosing = false;
     }
   });
+}
+
+if (mobileSearchToggle && mobileSearchPanel) {
+  mobileSearchToggle.addEventListener("click", toggleMobileSearch);
 }
