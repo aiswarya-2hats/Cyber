@@ -1,11 +1,4 @@
 
-.product-category-view-more-btn{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: toRem(32);
-}
 
    /* Tabs */
   .product-category-tabs {
@@ -165,6 +158,15 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.product-category-view-more-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: toRem(16);
+}
+
 
 
   /* Responsive */
